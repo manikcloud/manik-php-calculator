@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<project name="Manik-PHP-Calculator" default="build-docker-image">
+
+  <target name="manik-php-calculator">
+    <exec executable="docker">
+      <arg line="build -t manik-php-calculator ."/>
+    </exec>
+  </target>
+
+</project>
