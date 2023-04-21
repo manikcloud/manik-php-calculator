@@ -52,18 +52,24 @@ manik-php-calculator
 
 1. Clone the repository or download the source files.
 2. Navigate to the project directory in your terminal.
-3. Install Apache Ant if you haven't already. Ant is a Java-based build tool that helps automate build processes. In this project, Ant is used to build the Docker image using the build.xml file.
-4. Build the Docker image:
-    ```
-    ant build-docker-image -Ddocker.image.name=manik-php-calculator -Ddocker.file.name=Dockerfile
-    ```
-5. Run the Docker container:
+
+
+3. Run the Docker container:
     ```
     docker run -d -p 80:80 --name manik-php-calculator manik-php-calculator
     ```
-6. Visit the calculator in your web browser at http://localhost.
+4. Visit the calculator in your web browser at http://localhost.
 
-### Setting up a Jenkins Job
+## With ANT & Docker
+
+1. Install Apache Ant if you haven't already. Ant is a Java-based build tool that helps automate build processes. In this project, Ant is used to build the Docker image using the build.xml file.
+
+2. Build the Docker image:
+    ```
+    ant build-docker-image -Ddocker.image.name=manik-php-calculator -Ddocker.file.name=Dockerfile
+    ```
+
+# Setting up a Jenkins Job
 
 1. Install and set up Jenkins if you haven't already.
 2. Create a new Jenkins job as a "Freestyle project."
