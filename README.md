@@ -19,6 +19,11 @@ Manik-PHP-Calculator is a simple calculator application written in PHP that allo
     ```
     sudo apt install php libapache2-mod-php php-mysql php-curl php-gd php-json php-zip php-mbstring -y
     ```
+2.1 Version: Check PHP version with the following command:
+    ```
+    php -v
+
+    ```
 3. Build the Docker image
     ```
     sudo docker build -t manikphp-calculator .
@@ -33,16 +38,32 @@ Manik-PHP-Calculator is a simple calculator application written in PHP that allo
 
 ## AWS Security Group
 
-To allow access to the application from the internet, add the following inbound rule to the security group of your AWS instance:
+
+6. Access the application in your web browser by navigating to `http://localhost`.
+
+## AWS Security Group Configuration
+
+If you want to deploy this application on an AWS EC2 instance, you will need to configure the security group to allow incoming traffic on port 80. Here are the steps to do so:
+
+1. Go to the AWS EC2 dashboard and navigate to the Security Groups section.
+
+2. Select the security group that is associated with your EC2 instance.
+
+3. Click on the "Edit inbound rules" button.
+
+4. Click on the "Add Rule" button.
+
+5. Set the following values:
+
 - Type: HTTP
-- Port: 80
-- Source: 0.0.0.0/0
+- Protocol: TCP
+- Port range: 80
+- Source: Anywhere (0.0.0.0/0)
 
-## Version
-PHP version: 8.0.11
+6. Click on the "Save rules" button.
 
-Check PHP version with the following command:
-```
-php -v
+Now you should be able to access the Manik-PHP-Calculator application on your AWS EC2 instance by navigating to the public IP address of your instance in your web browser.
 
-```
+Note: Make sure to secure your application by using HTTPS instead of HTTP if you are deploying it on a public-facing server.
+
+
