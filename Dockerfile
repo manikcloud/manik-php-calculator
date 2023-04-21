@@ -2,7 +2,7 @@
 FROM php:7.4-apache
 
 # Copy the PHP files to the document root
-COPY ./indx.php /var/www/html/
+COPY ./index.php /var/www/html/
 
 # Expose port 80 for the web server
 EXPOSE 80
