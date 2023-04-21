@@ -36,11 +36,6 @@ Manik-PHP-Calculator is a simple calculator application written in PHP that allo
 ## Usage
 - Open your web browser and navigate to http://localhost to access the calculator.
 
-## AWS Security Group
-
-
-6. Access the application in your web browser by navigating to `http://localhost`.
-
 ## AWS Security Group Configuration
 
 If you want to deploy this application on an AWS EC2 instance, you will need to configure the security group to allow incoming traffic on port 80. Here are the steps to do so:
@@ -63,6 +58,8 @@ If you want to deploy this application on an AWS EC2 instance, you will need to 
 6. Click on the "Save rules" button.
 
 Now you should be able to access the Manik-PHP-Calculator application on your AWS EC2 instance by navigating to the public IP address of your instance in your web browser.
+
+Example Url: http://44.206.250.166
 
 Note: Make sure to secure your application by using HTTPS instead of HTTP if you are deploying it on a public-facing server.
 
