@@ -22,19 +22,56 @@ Manik-PHP-Calculator is a simple calculator application written in PHP that allo
 2.1 Version: Check PHP version with the following command:
     ```
     php -v
-
-    ```
-3. Build the Docker image
-    ```
-    sudo docker build -t manikphp-calculator .
-    ```
-4. Run the Docker container
-    ```
-    sudo docker run -d -p 80:80 --name manikphp-calculator manikphp-calculator
     ```
 
-## Usage
-- Open your web browser and navigate to http://localhost to access the calculator.
+## Project Structure
+
+manik-php-calculator
+├── Dockerfile
+├── README.md
+├── build.xml
+└── index.php
+
+## Prerequisites
+
+- PHP 7.4 or later
+- Apache Web Server
+- Docker (optional)
+- Apache Ant (optional, required for building the Docker image using the build.xml file)
+- Jenkins (optional, required for setting up CI/CD pipeline)
+
+## Setup and Usage
+
+### Without Docker
+
+1. Clone the repository or download the source files.
+2. Place the project files in your Apache web server's document root.
+3. Visit the index.php file in your web browser, e.g., http://localhost/index.php.
+
+### With Docker
+
+1. Clone the repository or download the source files.
+2. Navigate to the project directory in your terminal.
+3. Install Apache Ant if you haven't already. Ant is a Java-based build tool that helps automate build processes. In this project, Ant is used to build the Docker image using the build.xml file.
+4. Build the Docker image:
+    ```
+    ant build-docker-image -Ddocker.image.name=manik-php-calculator -Ddocker.file.name=Dockerfile
+    ```
+5. Run the Docker container:
+    ```
+    docker run -d -p 80:80 --name manik-php-calculator manik-php-calculator
+    ```
+6. Visit the calculator in your web browser at http://localhost.
+
+### Setting up a Jenkins Job
+
+1. Install and set up Jenkins if you haven't already.
+2. Create a new Jenkins job as a "Freestyle project."
+3. Under "Source Code Management," select "Git" and enter the repository URL.
+4. In the "Build" section, click "Add build step" and choose "Invoke Ant."
+5. In the "Targets" field, enter "build-docker-image" to specify the Ant target from the build.xml file.
+6. Save the job configuration.
+7. Run the job to build the Docker image using Jenkins.
 
 ## AWS Security Group Configuration
 
@@ -57,10 +94,4 @@ If you want to deploy this application on an AWS EC2 instance, you will need to 
 
 6. Click on the "Save rules" button.
 
-Now you should be able to access the Manik-PHP-Calculator application on your AWS EC2 instance by navigating to the public IP address of your instance in your web browser.
-
-Example Url: http://44.206.250.166
-
-Note: Make sure to secure your application by using HTTPS instead of HTTP if you are deploying it on a public-facing server.
-
-
+Now you should be able to access the Manik-PHP-Calculator application on your AWS EC2 instance by navigating to the
