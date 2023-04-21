@@ -74,8 +74,18 @@ manik-php-calculator
 1. Install and set up Jenkins if you haven't already.
 2. Create a new Jenkins job as a "Freestyle project."
 3. Under "Source Code Management," select "Git" and enter the repository URL.
+
+```
+https://github.com/manikcloud/manik-php-calculator.git
+
+```
 4. In the "Build" section, click "Add build step" and choose "Invoke Ant."
 5. In the "Targets" field, enter "build-docker-image" to specify the Ant target from the build.xml file.
+
+``` 
+build-docker-image -Ddocker.image.name=manik-php:$BUILD_ID -Ddocker.file.name=Dockerfile
+
+```
 6. Save the job configuration.
 7. Run the job to build the Docker image using Jenkins.
 
